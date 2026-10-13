@@ -1,0 +1,14 @@
+AutoTimestamp V7.7
+
+Perubahan utama:
+- Mode baru: Batch NPSN Online.
+- Input foto langsung banyak file bernama 1,2,3,... tanpa ZIP input.
+- Lookup NPSN exact-match ke Referensi Data Kemendikdasmen.
+- Ambil Lintang, Bujur, Desa/Kelurahan, Kabupaten/Kota, Provinsi.
+- Nama sekolah tidak ditampilkan pada overlay.
+- Format lokasi: Desa/Kelurahan, Kabupaten/Kota, Provinsi.
+- Cross-check koordinat menggunakan OpenStreetMap/Nominatim.
+- Generate diblokir jika hasil cross-check wilayah jelas mismatch.
+- Jam random tetap urut sesuai nomor foto dalam range yang dipilih.
+- Output ZIP + timestamp_log.csv yang mencatat sumber lokasi dan sumber waktu.
+- Mode lama Satu Foto + Gemini OCR tetap dipertahankan.
