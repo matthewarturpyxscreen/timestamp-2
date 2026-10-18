@@ -1,0 +1,12 @@
+# JANGAN commit secrets asli
+.streamlit/secrets.toml
+
+# Font yang di-clone otomatis saat app jalan (tidak perlu masuk repo)
+Hershey_font_TTF/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS junk
+.DS_Store

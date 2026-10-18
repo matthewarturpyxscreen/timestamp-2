@@ -1,0 +1,22 @@
+TIMESTAMP GENERATOR V9.0
+========================
+
+Perubahan utama:
+1. Metode ukuran timestamp baru di semua mode:
+   - Smart Uniform (Sisi Terpendek) — Recommended
+   - % Lebar Foto (Legacy)
+   - Fixed Pixel
+
+2. Smart Uniform:
+   - Ukuran dasar dihitung dari sisi terpendek gambar.
+   - Foto portrait dan landscape dengan resolusi setara akan memakai ukuran dasar yang sama.
+
+3. Batch Manual & Batch NPSN Online:
+   - Opsi "Kunci ukuran seluruh batch" tersedia dan default aktif.
+   - Program menghitung satu ukuran dasar bersama dari resolusi batch lalu memakai ukuran dasar yang sama pada semua foto.
+   - Auto-fit tetap menjadi pengaman jika ada foto/teks tertentu yang berpotensi terpotong.
+
+4. Mode Satu Foto:
+   - User juga bisa memilih Smart Uniform, Legacy, atau Fixed Pixel.
+
+Font tetap: AVHershey Simplex Medium.
