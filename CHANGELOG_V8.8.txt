@@ -1,0 +1,26 @@
+TIMESTAMP GENERATOR V8.8
+========================
+
+AUTO TIMEZONE + MANUAL OVERRIDE
+
+1. Batch Manual
+   - Zona waktu otomatis dibaca dari Timestamp Acuan / hasil OCR.
+   - Mendukung WIB, WITA, WIT, GMT, GMT±offset, UTC, UTC±offset.
+   - Contoh hasil OCR "17/10/2026 18:41:27 GMT+9" otomatis memakai GMT+9.
+   - User normalnya cukup mengatur tanggal, jam mulai, dan jam selesai.
+   - Manual override tetap tersedia jika hasil OCR salah atau tidak memiliki zona waktu.
+
+2. Batch NPSN Online
+   - Zona waktu otomatis ditentukan dari provinsi NPSN resmi.
+   - WIB / GMT+7 / UTC+7: Sumatra, Jawa, Kalimantan Barat, Kalimantan Tengah.
+   - WITA / GMT+8 / UTC+8: Bali, NTB, NTT, Sulawesi, Kalimantan Selatan/Timur/Utara.
+   - WIT / GMT+9 / UTC+9: Maluku dan seluruh provinsi Papua.
+   - User dapat memilih format label Indonesia (WIB/WITA/WIT), GMT, atau UTC tanpa mengubah offset.
+   - Manual override tetap tersedia.
+
+3. Mode Satu Foto
+   - Tidak diubah: zona waktu tetap mengikuti teks manual/OCR yang dimasukkan user.
+
+Catatan:
+- Tanggal dan jam batch tetap generated dari range input; bukan EXIF asli.
+- Zona waktu otomatis hanya menentukan label/offset yang ditampilkan pada overlay.
