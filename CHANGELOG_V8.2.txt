@@ -1,0 +1,27 @@
+TIMESTAMP GENERATOR V8.2
+========================
+
+Perubahan utama:
+1. Batch Manual sekarang punya metode input timestamp seperti mode Satu Foto:
+   - Ketik Manual
+   - OCR Screenshot (Gemini AI)
+   - Paste screenshot dengan Ctrl+V
+   - Upload screenshot timestamp
+
+2. Hasil OCR otomatis masuk ke kotak "Timestamp Acuan".
+   - Baris 1 dibaca sebagai koordinat.
+   - Baris 2 dibaca sebagai lokasi.
+   - Baris 3 dianggap waktu acuan saja dan TIDAK dipakai untuk batch.
+   - Tanggal dan jam output tetap mengikuti pengaturan Batch Manual: tanggal + jam mulai + jam selesai.
+   - Baris ke-4 dan seterusnya, jika ada, ikut sebagai baris tambahan pada semua foto.
+
+3. Flow Batch Manual tetap:
+   Upload foto -> Timestamp Acuan (Manual/OCR) -> Tanggal & rentang jam -> Gaya/koordinat -> Generate.
+
+4. Semua fitur sebelumnya tetap dipertahankan:
+   - Random jam berurutan sesuai nama 1,2,3,...
+   - Bold
+   - Ukuran timestamp
+   - Variasi koordinat opsional
+   - ZIP hasil
+   - Log CSV
