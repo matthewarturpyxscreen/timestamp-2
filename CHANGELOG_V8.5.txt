@@ -1,0 +1,46 @@
+TIMESTAMP GENERATOR V8.5
+========================
+
+Perubahan utama fallback NPSN koordinat 0,0:
+
+1. Logic utama TIDAK berubah.
+   - Jika koordinat resmi Kemendikdasmen tersedia, koordinat resmi tetap selalu dipakai.
+   - Fallback hanya jalan jika koordinat resmi benar-benar 0,0 dan toggle fallback diaktifkan.
+
+2. Google sekarang benar-benar independen dari OpenStreetMap.
+   - Google Places API (New) dapat mencari POI sekolah langsung meskipun OSM tidak menemukan sekolah.
+   - Google Geocoding dipakai sebagai bukti tambahan untuk alamat resmi.
+   - OSM/Nominatim tetap berjalan sebagai provider independen.
+
+3. Query fallback diperluas.
+   - Nama sekolah + NPSN + wilayah.
+   - Nama sekolah + alamat + wilayah.
+   - Nama sekolah + wilayah.
+   - Nama sekolah + desa/kecamatan/kabupaten/provinsi.
+   - Alamat + wilayah.
+
+4. Validasi fallback ketat.
+   - Nama POI harus cukup mirip dengan nama sekolah resmi.
+   - Kabupaten/kota dan provinsi wajib cocok.
+   - Minimal desa atau kecamatan juga harus cocok bila tersedia.
+   - Kandidat bertipe sekolah/pendidikan diprioritaskan.
+   - Google Places multi-query consensus bisa lolos walau sekolah tidak ada di OSM.
+   - Cross-provider Google + OSM berdekatan mendapat confidence VERY HIGH.
+   - Google Geocoding hanya sebagai konfirmasi alamat, tidak pernah dipakai sendirian sebagai titik sekolah.
+
+5. Pesan error fallback sekarang memberi diagnostik jumlah kandidat valid dari:
+   - Google Places
+   - OpenStreetMap
+   - Google Geocoding
+
+KONFIGURASI GOOGLE MAPS
+-----------------------
+Agar fallback paling kuat, isi Streamlit Secrets:
+
+GOOGLE_MAPS_API_KEY = "API_KEY_KAMU"
+
+Aktifkan pada Google Cloud project yang sama:
+- Places API (New)
+- Geocoding API
+
+Tanpa API key, fallback tetap mencoba OSM/Nominatim tetapi sekolah yang tidak terpetakan di OSM mungkin tetap tidak ditemukan.
